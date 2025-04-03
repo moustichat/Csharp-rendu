@@ -1,0 +1,925 @@
+using System;
+using System.Collections.Generic;
+using System.Data.Common;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Net.Http;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
+
+
+/*
+Console.WriteLine("Longueur:");
+int longueur = Int32.Parse(Console.ReadLine());
+Console.WriteLine("Largeur:");
+int largeur = Int32.Parse(Console.ReadLine());
+Console.WriteLine("Hauteur:");
+int hauteur = Int32.Parse(Console.ReadLine());
+
+int volume = longueur * largeur * hauteur;
+ù
+Console.WriteLine(volume);
+*/
+
+/*
+
+Console.WriteLine("temps en s:");
+int secondes = Int32.Parse(Console.ReadLine());
+
+
+int annees = secondes / (3600 * 24 * 360);
+secondes = secondes % (3600 * 24 * 365);
+
+int mois = secondes / (3600 * 24 * 30);
+secondes = secondes % (3600 * 24 * 30);
+
+int jours = secondes / (3600 * 24);
+secondes = secondes % (3600 * 24);
+
+int heures = secondes / 3600;
+secondes = secondes % 3600;
+
+int minutes = secondes / 60;
+secondes = secondes % 60;
+
+
+
+Console.WriteLine(secondes);
+Console.WriteLine(minutes);
+Console.WriteLine(heures);
+Console.WriteLine(jours);
+Console.WriteLine(mois);
+Console.WriteLine(annees);*/
+
+
+
+
+
+/*
+Console.WriteLine("a:");
+int a = int.Parse(Console.ReadLine());
+
+Console.WriteLine("b:");
+int b = int.Parse(Console.ReadLine());
+
+int old_a = a;
+a = b;
+b = old_a;
+
+Console.WriteLine(a);
+Console.WriteLine(b);
+
+*/
+
+
+
+// Année bissextile
+
+/*
+
+bool bissextile = false;
+
+Console.WriteLine("Année :");
+int year = Convert.ToInt32(Console.ReadLine());
+
+if (year % 4 == 0) {
+    bissextile = true;
+    if (year % 100 == 0) {
+        if (year % 400 != 0) {
+            bissextile = false;
+        }
+    }
+}
+
+if (bissextile) Console.WriteLine($"{year} est bissextile");
+else Console.WriteLine($"{year} n'est pas bissextile");
+
+*/
+
+
+// Exo 1
+
+/*
+
+Console.WriteLine("Température :");
+double temp = Convert.ToDouble(Console.ReadLine());
+
+Console.WriteLine("1 pour C à F - 2 pour F à C");
+int choice = Convert.ToInt32(Console.ReadLine());
+
+if (choice == 1) {
+    Console.WriteLine((temp*9/5) + 32);
+}
+
+else if (choice == 2) {
+    Console.WriteLine((temp - 32) * 5/9);
+}
+
+else {
+    Console.WriteLine("Veuillez rentrer 1 ou 2");
+}
+*/
+
+
+// Exo 2
+
+/*
+Console.WriteLine("Montant emprunté (P) :");
+int P = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Intérêt annuel (t) (0.05 pour 5%) : ");
+int t = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Durée du prêt en mois (n) : ");
+int n = Convert.ToInt32(Console.ReadLine());
+
+int M = (P * t/12) / (1 - (1 + t/12)^(-n));
+Console.WriteLine(M);
+
+*/
+
+
+// Exo 3
+
+/*
+Console.WriteLine("Poids :");
+double weight = Convert.ToDouble((string)Console.ReadLine());
+
+Console.WriteLine("Taille : ");
+double height = Convert.ToDouble((string)Console.ReadLine());
+
+double IMC = Convert.ToDouble(weight / Math.Pow(height, 2));
+Console.WriteLine($"IMC : {IMC}");
+
+
+if (IMC < 18.5 ){
+    Console.WriteLine("Insuffisance pondérale");
+}
+
+else if (IMC < 25) {
+    Console.WriteLine("Corpulence normale");
+}
+
+else if (IMC < 30) {
+    Console.WriteLine("Surpoids");
+}
+
+else if (IMC < 35) {
+    Console.WriteLine("Obésité modérée");
+}
+
+else if (IMC < 40) {
+    Console.WriteLine("Obésité sévère");
+}
+
+else {
+    Console.WriteLine("Obésité morbide");
+}
+
+*/
+
+
+//Exo 4
+
+/*
+
+Console.WriteLine("Coordonnées du premier point :");
+Console.Write("x1 : ");
+double x1 = Convert.ToDouble(Console.ReadLine());
+Console.Write("y1 : ");
+double y1 = Convert.ToDouble(Console.ReadLine());
+
+Console.WriteLine("Coordonnées du deuxième point :");
+Console.Write("x2 : ");
+double x2 = Convert.ToDouble(Console.ReadLine());
+Console.Write("y2 : ");
+double y2 = Convert.ToDouble(Console.ReadLine());
+
+
+double distance = Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2));
+
+Console.WriteLine($"La distance est de : {distance}");
+
+*/
+
+
+// Exo 5
+
+/*
+double[] taux = {1, 1.10, 0.85, 158};
+
+
+
+Console.WriteLine("Montant à convertir :");
+double montant = Convert.ToDouble(Console.ReadLine());
+
+Console.WriteLine("Devise source (1:EUR, 2:USD, 3:GBP, 4:JPY) :");
+int deviseSource = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Devise cible (1:EUR, 2:USD, 3:GBP, 4:JPY) :");
+int deviseCible = Convert.ToInt32(Console.ReadLine());
+
+
+double montantConverti = montant / taux[deviseSource - 1] * taux[deviseCible - 1];
+ 
+
+Console.WriteLine($"Le montant converti est : {montantConverti}");
+
+*/
+
+
+// Exo 6
+
+/*
+
+Console.WriteLine("Coefficient a :");
+double a = Convert.ToDouble(Console.ReadLine());
+        
+Console.WriteLine("Coefficient b :");
+double b = Convert.ToDouble(Console.ReadLine());
+        
+Console.WriteLine("Coefficient c :");
+double c = Convert.ToDouble(Console.ReadLine());
+        
+double delta = b * b - 4 * a * c;
+        
+
+if (delta < 0) {
+    Console.WriteLine("Pas de solution réelle");
+}
+
+else if (delta == 0) {
+    double x = -b / (2 * a);
+    Console.WriteLine($"L'équation {a}x² + {b}x + {c} = 0 a une solution réelle :");
+    Console.WriteLine($"x = {x}");
+}
+
+else {
+    double x1 = (-b - Math.Sqrt(delta)) / (2 * a);
+    double x2 = (-b + Math.Sqrt(delta)) / (2 * a);
+    Console.WriteLine($"L'équation {a}x² + {b}x + {c} = 0 a deux solutions réelles :");
+    Console.WriteLine($"x1 = {x1}");
+    Console.WriteLine($"x2 = {x2}");
+}
+
+*/
+
+// exo 7
+
+/*
+
+Console.WriteLine("Factorielle de :");
+int n = Convert.ToInt32(Console.ReadLine());
+int resultat = 1;
+
+for (int i = 2;i <= n;i++){
+    resultat *= i;
+}
+Console.WriteLine(resultat);
+*/
+
+
+
+//exo 8
+
+/*
+Console.WriteLine("Entrez une chaîne de caractères :");
+string input = Console.ReadLine();
+bool isPalindrome = new string(input.Reverse().ToArray()) == input;
+
+if (isPalindrome) {
+    Console.WriteLine("La chaîne est un palindrome.");
+}
+else {
+    Console.WriteLine("La chaîne n'est pas un palindrome.");
+}
+*/
+
+
+
+// Exo 9
+
+/*
+
+Console.WriteLine("Entrez la longueur du mot de passe :");
+int length = int.Parse(Console.ReadLine());
+
+
+string upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+string lowerCase = "abcdefghijklmnopqrstuvwxyz";
+string digits = "0123456789";
+string specialChars = "!@#$%^&*()_+-=[]{}|;:,.<>?";
+string allChars = upperCase + lowerCase + digits + specialChars;
+
+Random random = new Random();
+string password = "";
+
+
+for (int i = 0; i < length; i++) {
+    password += allChars[random.Next(allChars.Length)];
+}
+
+
+Console.WriteLine($"Mot de passe généré : {password}");
+
+*/
+
+
+
+// Exo 1
+
+/*
+
+
+Console.WriteLine("Combien de notes souhaitez-vous saisir ?");
+int nombreNotes = int.Parse(Console.ReadLine());
+
+List<double> notes = new List<double>();
+
+for (int i = 0; i < nombreNotes; i++)
+{
+    Console.WriteLine($"Entrez la note {i + 1} :");
+    double note = double.Parse(Console.ReadLine());
+    notes.Add(note);
+}
+
+double moyenne = 0;
+double noteMax = double.MinValue;
+double noteMin = double.MaxValue;
+
+foreach (double note in notes)
+{
+    moyenne += note;
+    if (note > noteMax) noteMax = note;
+    if (note < noteMin) noteMin = note;
+}
+
+moyenne /= notes.Count;
+
+string appreciation;
+if (moyenne >= 16)
+    appreciation = "Très bien";
+else if (moyenne >= 14)
+    appreciation = "Bien";
+else if (moyenne >= 12)
+    appreciation = "Assez bien";
+else if (moyenne >= 10)
+    appreciation = "Passable";
+else
+    appreciation = "Insuffisant";
+
+Console.WriteLine("\nRésultats :");
+Console.WriteLine($"Moyenne : {moyenne:F1}");
+Console.WriteLine($"Note la plus haute : {noteMax}");
+Console.WriteLine($"Note la plus basse : {noteMin}");
+Console.WriteLine($"Appréciation : {appreciation}");
+
+
+*/
+
+
+// Exo 2
+
+/*
+
+        Console.WriteLine("Choisissez un motif :");
+        Console.WriteLine("1. Triangle rectangle");
+        Console.WriteLine("2. Triangle isocèle");
+        Console.WriteLine("3. Carré plein");
+        Console.WriteLine("4. Carré vide");
+        Console.WriteLine("5. Damier");
+        int choix = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("Entrez la taille du motif :");
+        int taille = int.Parse(Console.ReadLine());
+
+        switch (choix)
+        {
+            case 1:
+                TriangleRectangle(taille);
+                break;
+            case 2:
+                TriangleIsocele(taille);
+                break;
+            case 3:
+                CarrePlein(taille);
+                break;
+            case 4:
+                CarreVide(taille);
+                break;
+            case 5:
+                Damier(taille);
+                break;
+            default:
+                Console.WriteLine("Choix invalide.");
+                break;
+        }
+
+    static void TriangleRectangle(int taille)
+    {
+        for (int i = 1; i <= taille; i++)
+        {
+            Console.WriteLine(new string('*', i));
+        }
+    }
+
+    static void TriangleIsocele(int taille)
+    {
+        for (int i = 1; i <= taille; i++)
+        {
+            Console.WriteLine(new string(' ', taille - i) + new string('*', 2 * i - 1));
+        }
+    }
+
+    static void CarrePlein(int taille)
+    {
+        for (int i = 0; i < taille; i++)
+        {
+            Console.WriteLine(new string('*', taille));
+        }
+    }
+
+    static void CarreVide(int taille)
+    {
+        for (int i = 0; i < taille; i++)
+        {
+            if (i == 0 || i == taille - 1)
+            {
+                Console.WriteLine(new string('*', taille));
+            }
+            else
+            {
+                Console.WriteLine("*" + new string(' ', taille - 2) + "*");
+            }
+        }
+    }
+
+    static void Damier(int taille)
+    {
+        for (int i = 0; i < taille; i++)
+        {
+            for (int j = 0; j < taille; j++)
+            {
+                if ((i + j) % 2 == 0)
+                    Console.Write("*");
+                else
+                    Console.Write(" ");
+            }
+            Console.WriteLine();
+        }
+    }
+
+    */
+
+
+
+// Exo 3
+
+
+/*
+
+Console.WriteLine("Premier ?");
+Console.WriteLine("Nombre :");
+int nombre = int.Parse(Console.ReadLine());
+
+for (int i = nombre; i >= 2; i--)
+{
+    if (i == nombre) {
+        if (Premier(i)) Console.WriteLine($"{i} est un nombre premier.");
+        else Console.WriteLine($"{i} n'est pas un nombre premier.");
+        Console.WriteLine();
+        continue;
+    }
+
+    if (Premier(i)) Console.WriteLine($"{i} est un nombre premier.");
+}
+
+
+
+
+static bool Premier(int nombre)
+{
+    for (int i = 2; i < nombre; i++)
+    {
+        if (nombre % i == 0)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+*/
+
+
+// Exo 5
+
+
+/*
+
+Console.WriteLine("Entrer un nombre à convertir en chiffres romains:");
+int nombre = int.Parse(Console.ReadLine());
+
+Dictionary<int, string> chiffresRomains = new Dictionary<int, string>()
+{
+    { 3000, "MMM" },
+    { 2000, "MM" },
+    { 1000, "M" },
+    { 900, "CM" },
+    { 800, "DCCC" },
+    { 700, "DCC" },
+    { 600, "DC" },
+    { 500, "D" },
+    { 400, "CD" },
+    { 300, "CCC" },
+    { 200, "CC" },
+    { 100, "C" },
+    { 90, "XC" },
+    { 80, "LXXX" },
+    { 70, "LXX" },
+    { 60, "LX" },
+    { 50, "L" },
+    { 40, "XL" },
+    { 30, "XXX" },
+    { 20, "XX" },
+    { 10, "X" },
+    { 9, "IX" },
+    { 8, "VIII" },
+    { 7, "VII" },
+    { 6, "VI" },
+    { 5, "V" },
+    { 4, "IV" },
+    { 3, "III" },
+    { 2, "II" },
+    { 1, "I" },
+    { 0, "" }
+};
+
+string n_nombre = Convert.ToString(nombre);
+string nombreromain = "";
+
+
+for (int i = 0; i < n_nombre.Length; i++) {
+    int c = int.Parse(Convert.ToString(n_nombre[i])) * (int)Math.Pow(10, n_nombre.Length - (i + 1));
+    Console.WriteLine(c);
+    nombreromain += chiffresRomains[c];
+
+}
+Console.WriteLine(nombreromain);
+
+*/
+
+
+/*
+
+int credits = 100;
+Random random = new Random();
+int tour = 1;
+
+Console.WriteLine("Bienvenue au Simulateur de Machine à Sous !");
+Console.WriteLine($"Vous avez {credits} crédits.\n");
+
+while (credits >= 10)
+{
+    Console.Write("Appuyez sur Entrée pour jouer (q pour quitter) : ");
+    string input = Console.ReadLine();
+    if (string.Equals(input, "q"))
+    {
+        Console.WriteLine("Merci d'avoir joué !");
+        break;
+    }
+
+    credits -= 10;
+    int[] resultats = { random.Next(1, 6), random.Next(1, 6), random.Next(1, 6) };
+
+    Console.WriteLine($"\nTour n°{tour} : [{resultats[0]}] [{resultats[1]}] [{resultats[2]}]");
+
+    if (resultats[0] == resultats[1] && resultats[1] == resultats[2])
+    {
+        Console.WriteLine("Vous avez gagné 100 crédits !");
+        credits += 100;
+    }
+    else if (resultats[0] == resultats[1] || resultats[1] == resultats[2] || resultats[0] == resultats[2])
+    {
+        Console.WriteLine("Vous avez gagné 20 crédits !");
+        credits += 20;
+    }
+    else
+    {
+        Console.WriteLine("Pas de chance cette fois !");
+    }
+
+    Console.WriteLine($"Crédits actuels : {credits}\n");
+        tour++;
+}
+
+if (credits < 1) Console.WriteLine("Vous n'avez plus assez de crédits pour jouer. Fin du jeu !");
+
+*/
+
+
+// Exo 7
+
+/*
+
+Console.WriteLine("Nombre binaire à convertir:");
+Console.WriteLine(convDecim(Convert.ToInt32(Console.ReadLine())));
+
+static int convDecim(int nombreBin) {
+    string strnombrebin = Convert.ToString(nombreBin);
+    int nombreDecim = 0;
+    for (int i = strnombrebin.Length - 1; i >= 0; i--) {
+        if ((strnombrebin[i] < 0) && (strnombrebin[i] > 1)) {
+            break;
+        }
+        nombreDecim += int.Parse(Convert.ToString(strnombrebin[i])) * (int)Math.Pow(2, strnombrebin.Length - (i + 1));
+    } 
+    return nombreDecim;
+}
+
+*/
+
+
+// Exo 8
+
+/*
+Console.Write("Entrez le nombre de termes de la suite de Fibonacci à générer : ");
+int n = int.Parse(Console.ReadLine());
+*/
+
+/*
+int n2 = 0;
+int n1 = 1;
+
+for (int i = 1;i <= n;i++) {
+    Console.WriteLine($"n1 : {n2}");
+    int e = n1;
+    n1 += n2;
+    n2 = e;
+    
+}
+*/
+
+/*
+
+for (int i = 0; i<n; i++) Console.WriteLine(Fibonacci(i));
+
+
+static int Fibonacci(int n) {
+    if (n <= 1) return n;
+    else return Fibonacci(n-1) + Fibonacci(n-2);
+}
+
+*/
+
+
+/*
+
+Console.WriteLine("Jeu de devinette de nombre !");
+Console.WriteLine("Choisissez un niveau de difficulté : ");
+Console.WriteLine("1. Facile (essais illimités)");
+Console.WriteLine("2. Difficile (maximum 7 essais)");
+Console.Write("Votre choix : ");
+int choix = int.Parse(Console.ReadLine());
+
+Random random = new Random();
+int nombre = random.Next(1, 100);
+
+int essais = 1;
+int essais_max = 7;
+
+while (essais < essais_max) {
+    Console.WriteLine("J'ai choisi un nombre entre 1 et 100. Essayez de le deviner !");
+    Console.Write("Essai : ");
+    int essai = Convert.ToInt32(Console.ReadLine());
+
+    if (essai > nombre) Console.WriteLine("Trop grand");
+    else if (essai < nombre) Console.WriteLine("Trop petit");
+    else {
+        Console.WriteLine($"Bravo ! Tu as gagné en {essais} essais");
+        break;
+    }
+
+    essais += 1;
+    if (choix == 1) essais_max += 1;
+    
+}
+
+if (essais >= essais_max) Console.WriteLine("Dommage, tu as perdu");
+
+*/
+
+
+/*
+
+string dead = "| |";
+string alive = "|X|";
+
+
+string[][] grille = new string[10][];
+
+
+for (int i = 0; i < 10; i++) {
+    grille[i] = new string[10];
+}
+
+for (int i = 0; i < 10; i++) {
+    for (int j = 0; j < 10; j++) {
+        grille[i][j] = dead;
+    }
+}
+
+grille[3][3] = alive;
+grille[3][4] = alive;
+grille[3][5] = alive;
+grille[2][4] = alive;
+
+
+Console.WriteLine();
+Console.Write(" ");
+for (int l = 0; l < 10; l++) Console.Write($" {l} ");
+
+for (int i = 0; i < 10; i++) {
+    Console.WriteLine();
+    Console.Write(i);
+    for (int j = 0; j < 10; j++) {
+        Console.Write(grille[i][j]);
+    }
+}
+
+
+string entry = "";
+
+
+while (entry == "") {
+
+    entry = Console.ReadLine();
+    Console.Clear();
+
+    
+    string[][] old_grille = new string[10][];
+
+    for (int i = 0; i < 10; i++) {
+        old_grille[i] = new string[10];
+    }
+
+    CopierGrilles(old_grille, grille);
+
+
+
+    Console.Write(" ");
+    for (int l = 0; l < 10; l++) Console.Write($" {l} ");
+
+
+    for (int i = 0; i < 10; i++) {
+        Console.WriteLine();
+        Console.Write(i);
+        for (int j = 0; j < 10; j++) {
+
+            int voisins = 0;
+
+
+            if (i > 0) {
+                if (j > 0) {
+                    if (old_grille[i-1][j-1] == alive) voisins += 1;
+                }
+                if (old_grille[i-1][j] == alive) voisins += 1;
+                if (j < 9) {
+                    if (old_grille[i-1][j+1] == alive) voisins += 1;
+                }
+            }
+
+            
+            if (j > 0) {
+                if (old_grille[i][j-1] == alive) voisins += 1;
+            }
+            if (j < 9) {
+                if (old_grille[i][j+1] == alive) voisins += 1;
+            }
+
+
+            if (i < 9) {
+                if (j > 0) {
+                    if (old_grille[i+1][j-1] == alive) voisins += 1;
+                }
+                if (old_grille[i+1][j] == alive) voisins += 1;
+                if (j < 9) {
+                    if (old_grille[i+1][j+1] == alive) voisins += 1;
+                }
+            }
+
+
+            if ((old_grille[i][j] == dead) && (voisins == 3)) {
+                grille[i][j] = alive;
+            }
+            else if (((voisins == 2) || (voisins == 3)) && (old_grille[i][j] == alive)) {
+                grille[i][j] = alive;
+            }
+            else {
+                grille[i][j] = dead;
+            }
+            
+
+
+            Console.Write(grille[i][j]);
+        }
+    }
+}
+
+
+static void CopierGrilles(string[][] cible, string[][] source) {
+
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 10; j++) {
+            cible[i][j] = source[i][j];
+        }
+    }
+}
+
+
+*/
+
+
+
+// Syracuse
+
+/*
+
+Console.Write("Entrez le nombre n : ");
+int n = int.Parse(Console.ReadLine());
+
+List<int> suite = new List<int>();
+
+int vmax = n;
+
+
+while (n > 1) {
+    if (n % 2 == 0) n /= 2;
+    else n = 3*n + 1;
+    Console.WriteLine(n);
+    suite.Add(n);
+    if (n > vmax) vmax = n;
+}
+
+Console.WriteLine($"Il y a eu {suite.Count} étapes, et la valeur max est {vmax}");
+
+*/
+
+char[][] alphabet = new char[5][];
+
+char currentChar = 'A';
+for (int i = 0; i < 5; i++)
+{
+    alphabet[i] = new char[5];
+    for (int j = 0; j < 5; j++)
+    {
+        if (currentChar == 'J') currentChar++;
+        alphabet[i][j] = currentChar;
+        currentChar++;
+    }
+}
+
+for (int i = 0; i < 5; i++)
+{
+    for (int j = 0; j < 5; j++)
+    {
+        Console.Write(alphabet[i][j] + " ");
+    }
+    Console.WriteLine();
+}
+
+Console.WriteLine("(1) Crypter");
+Console.WriteLine("(2) Décrypter");
+Console.Write("Choix : ");
+int choice = int.Parse(Console.ReadLine());
+
+Console.WriteLine();
+Console.Write("Message à transformer : ");
+string message = Console.ReadLine().ToUpper();
+string coded_message = "";
+
+if (choice == 1) {
+
+    for (int i = 0; i < message.Length; i++) {
+        for (int j = 0; j < 5; j++) {
+            for (int k = 0; k < 5; k++) {
+                if (alphabet[j][k] == message[i]) coded_message = coded_message + Convert.ToString(j + 1) + Convert.ToString(k + 1) + " ";
+            }
+        }
+    }
+}
+
+else if (choice == 2) {
+
+    string[] msg_split = message.Split(' ');
+
+    foreach(string nombre in msg_split) {
+        coded_message += alphabet[int.Parse(Convert.ToString(nombre[0]))-1][int.Parse(Convert.ToString(nombre[1]))-1];
+    }
+
+}
+
+
+
+Console.WriteLine($"{message} devient {coded_message}");
